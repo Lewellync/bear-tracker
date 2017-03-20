@@ -1,6 +1,11 @@
-var bearApp = angular.module('bearApp', []);
+var bearApp = angular.module('bearApp', ['ngMap']);
 
-function mainController($scope, $http) {
+bearApp.controller('mapController', function($scope, $http) {
+  var vm = this;
+  
+});
+
+bearApp.controller('mainController', function ($scope, $http) {
   $scope.formData = {}
 
   $http.get('/api/bears')
@@ -34,5 +39,5 @@ function mainController($scope, $http) {
       .error(function(data) {
         console.log('Error: ' + data);
       });
-  }
-}
+  };
+});
