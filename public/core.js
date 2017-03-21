@@ -2,7 +2,15 @@ var bearApp = angular.module('bearApp', ['ngMap']);
 
 bearApp.controller('mapController', function($scope, $http) {
   var vm = this;
-  
+
+  $http.get('/api/bears')
+    .success(function(data) {
+      $scope.bears = data;
+      console.log(data);
+    })
+    .error(function(data) {
+      console.log('Error loading map bear');
+    });
 });
 
 bearApp.controller('mainController', function ($scope, $http) {
@@ -18,6 +26,9 @@ bearApp.controller('mainController', function ($scope, $http) {
     });
 
   $scope.createBear = function() {
+
+    // This is where address calculations should be done
+
     $http.post('/api/bears', $scope.formData)
       .success(function(data) {
         $scope.formData = {}

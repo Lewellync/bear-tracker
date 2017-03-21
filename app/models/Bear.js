@@ -6,6 +6,7 @@ var BearSchema = new Schema({
   birth:      {type: Date, default: Date.now},
   death:      {type: Date, default: "1/1/1900"},
   killcount:  Number,
+  address:    String,
   xpos:       Number,
   ypos:       Number
 });
